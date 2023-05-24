@@ -35,7 +35,7 @@
 ### Association
 
 - belongs_to :user
-- has_one :documents
+- has_one :document
 
 ##  documents_table
 
@@ -52,7 +52,7 @@
 
 | Column                | Type       | Options                        |
 |---------------------- |------------|--------------------------------|
-| order                 | references | null: false, foreign_key: true |
+| document              | references | null: false, foreign_key: true |
 | number                | string     | null: false                    |
 | address_prefecture_id | integer    | null: false                    |
 | address_city          | string     | null: false                    |
@@ -60,4 +60,4 @@
 | address_building      | string     |                                |
 | telephone             | string     | null: false                    |
 
-- belongs_to :documents
+- belongs_to :document
