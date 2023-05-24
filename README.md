@@ -37,7 +37,7 @@
 - belongs_to :user
 - has_one :record
 
-##  records_table
+##  documents_table
 
 | Column      | Type       | Options                        |
 |-------------|------------|--------------------------------|
@@ -51,12 +51,13 @@
 ##  shipping_addresses_table
 
 | Column             | Type       | Options                        |
-|-------------       |------------|--------------------------------|
+|------------------- |------------|--------------------------------|
+| user               | references | null: false, foreign_key: true |
 | number             | string     | null: false                    |
-| address_prefecture | integer    | null: false                    |
+| shipper_address_id | integer    | null: false                    |
 | address_city       | string     | null: false                    |
 | address_number     | string     | null: false                    |
-| address_building   | string     | null: false                    |
+| address_building   | string     |                                |
 | telephone          | string     | null: false                    |
 
 - belongs_to :record
