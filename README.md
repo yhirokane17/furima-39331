@@ -16,26 +16,26 @@
 ### Association
 
 * has_many :items
-* has_many :records
+* has_many :documents
 
 ## items_table
 
-| Column             | Type       | Options                        |
-|-----------------   |------------|--------------------------------|
-| user               | references | null: false, foreign_key: true |
-| item               | text       | null: false                    |
-| explanation        | text       | null: false                    |
-| category_id        | integer    | null: false                    |
-| status_id          | integer    | null: false                    |
-| delivery_price_id  | integer    | null: false                    |
-| shipper_address_id | integer    | null: false                    |
-| delivery_date_id   | integer    | null: false                    |
-| price              | integer    | null: false                    |
+| Column                | Type       | Options                        |
+|--------------------   |------------|--------------------------------|
+| user                  | references | null: false, foreign_key: true |
+| item                  | text       | null: false                    |
+| explanation           | text       | null: false                    |
+| category_id           | integer    | null: false                    |
+| status_id             | integer    | null: false                    |
+| delivery_price_id     | integer    | null: false                    |
+| address_prefecture_id | integer    | null: false                    |
+| delivery_date_id      | integer    | null: false                    |
+| price                 | integer    | null: false                    |
 
 ### Association
 
 - belongs_to :user
-- has_one :record
+- has_one :documents
 
 ##  documents_table
 
@@ -50,14 +50,14 @@
 
 ##  shipping_addresses_table
 
-| Column             | Type       | Options                        |
-|------------------- |------------|--------------------------------|
-| user               | references | null: false, foreign_key: true |
-| number             | string     | null: false                    |
-| shipper_address_id | integer    | null: false                    |
-| address_city       | string     | null: false                    |
-| address_number     | string     | null: false                    |
-| address_building   | string     |                                |
-| telephone          | string     | null: false                    |
+| Column                | Type       | Options                        |
+|---------------------- |------------|--------------------------------|
+| order                 | references | null: false, foreign_key: true |
+| number                | string     | null: false                    |
+| address_prefecture_id | integer    | null: false                    |
+| address_city          | string     | null: false                    |
+| address_number        | string     | null: false                    |
+| address_building      | string     |                                |
+| telephone             | string     | null: false                    |
 
-- belongs_to :record
+- belongs_to :documents
