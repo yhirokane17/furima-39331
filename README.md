@@ -11,7 +11,7 @@
 | first_name             | string   | null: false               |
 | last_name_kana         | string   | null: false               |
 | first_name_kana        | string   | null: false               |
-| date                   | string   | null: false               |
+| birthday               | date     | null: false               |
 
 ### Association
 
@@ -23,6 +23,7 @@
 | Column             | Type       | Options                        |
 |-----------------   |------------|--------------------------------|
 | user               | references | null: false, foreign_key: true |
+| item               | text       | null: false                    |
 | explanation        | text       | null: false                    |
 | category_id        | integer    | null: false                    |
 | status_id          | integer    | null: false                    |
@@ -33,7 +34,7 @@
 
 ### Association
 
-- has_many :users
+- belongs_to :user
 - has_one :record
 
 ##  records_table
@@ -45,7 +46,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :shipping address
+- has_one :shipping_address
 
 ##  shipping_addresses_table
 
@@ -53,10 +54,9 @@
 |-------------       |------------|--------------------------------|
 | number             | string     | null: false                    |
 | address_prefecture | integer    | null: false                    |
-| address            | string     | null: false                    |
+| address_city       | string     | null: false                    |
+| address_number     | string     | null: false                    |
+| address_building   | string     | null: false                    |
 | telephone          | string     | null: false                    |
 
-
-
-- belongs_to :user
 - belongs_to :record
