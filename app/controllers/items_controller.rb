@@ -10,8 +10,10 @@ class ItemsController < ApplicationController
 
   def create
     Item create(item_params)
-end
+  end
 
-private
-def item_params
-  params.require(:item).permit(:item,:explanation,:category_id,:status_id,:delivery_id,:address_prefecture_id,:delivery_date_id,:price)
+ private
+  def item_params
+   params.require(:item).permit(:item,:explanation,:category_id,:status_id,:delivery_id,:address_prefecture_id,:delivery_date_id,:price)
+  end
+end
