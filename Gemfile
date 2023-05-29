@@ -63,3 +63,4 @@ end
 gem 'devise'
 gem 'rspec-rails', '~> 4.0.1'
 gem 'factory_bot_rails'
+gem 'active_hash'
