@@ -1,8 +1,9 @@
 class DocumentsController < ApplicationController
   def index
+    @item = Item.find(params[:item_id])
   end
 
-  def  new
+  def new
     @document_shipping_address = DocumentShippingAddress.new
   end
 

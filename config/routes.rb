@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'items/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "items#index"
-  resources :items
-  resources :documents,only:[:create,:index]
+  resources :items do
+  resources :documents,only: [:create,:index]
+  end
 end
