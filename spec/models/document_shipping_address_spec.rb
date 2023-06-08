@@ -74,7 +74,7 @@ RSpec.describe DocumentShippingAddress, type: :model do
         @documentshippingaddress.valid?
         expect(@documentshippingaddress.errors.full_messages).to include("User can't be blank")
       end
-      it 'userが紐付いていないと保存できないこと' do
+      it 'itemが紐付いていないと保存できないこと' do
         @documentshippingaddress.item_id = nil
         @documentshippingaddress.valid?
         expect(@documentshippingaddress.errors.full_messages).to include("Item can't be blank")

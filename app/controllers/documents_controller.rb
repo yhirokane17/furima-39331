@@ -1,23 +1,19 @@
 class DocumentsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create]
+  before_action :set_item, only:[:index, :create, ]
   before_action :move_to_root, only: [:index]
 
   def index
-    @item = Item.find(params[:item_id])
-    #binding.pry
     @documentshippingaddress = DocumentShippingAddress.new
   end
 
   def create
     @documentshippingaddress = DocumentShippingAddress.new(documentshippingaddress_params)
-    @item = Item.find(params[:item_id])
-    #binding.pry
     if @documentshippingaddress.valid?
       pay_item
      @documentshippingaddress.save
       redirect_to root_path
     else
-     @item = Item.find(params[:item_id])
       render :index
     end
   end
@@ -37,10 +33,13 @@ class DocumentsController < ApplicationController
     )
   end
   def move_to_root
-    @item = Item.find(params[:item_id])
+    set_item
     @document = Document.find_by(item_id: @item.id)
     if @item.user_id == current_user.id || !(@document.nil?)
       redirect_to root_path
     end
+  end
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 end
