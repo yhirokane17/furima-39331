@@ -24,7 +24,8 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    unless current_user == @item.user
+    @document = Document.find_by(item_id: @item.id)
+    unless current_user == @item.user && @document.nil?
       redirect_to root_path
     end
   end
