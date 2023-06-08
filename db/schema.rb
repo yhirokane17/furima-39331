@@ -33,11 +33,6 @@ ActiveRecord::Schema.define(version: 2023_06_05_110225) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "document_shipping_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "documents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "item_id", null: false
     t.bigint "user_id", null: false
@@ -63,7 +58,7 @@ ActiveRecord::Schema.define(version: 2023_06_05_110225) do
   end
 
   create_table "shipping_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "document_id", null: false
     t.string "number", null: false
     t.integer "address_prefecture_id", null: false
     t.string "address_city", null: false
@@ -72,7 +67,7 @@ ActiveRecord::Schema.define(version: 2023_06_05_110225) do
     t.string "telephone", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_shipping_addresses_on_user_id"
+    t.index ["document_id"], name: "index_shipping_addresses_on_document_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -97,5 +92,5 @@ ActiveRecord::Schema.define(version: 2023_06_05_110225) do
   add_foreign_key "documents", "items"
   add_foreign_key "documents", "users"
   add_foreign_key "items", "users"
-  add_foreign_key "shipping_addresses", "users"
+  add_foreign_key "shipping_addresses", "documents"
 end
