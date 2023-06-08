@@ -13,5 +13,4 @@ class User < ApplicationRecord
          validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: "is invalid" }
 
          has_many :items
-         has_many :documents_shipping_addresses
 end
