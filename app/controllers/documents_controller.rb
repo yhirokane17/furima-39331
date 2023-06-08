@@ -1,4 +1,5 @@
 class DocumentsController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :create]
   before_action :move_to_root, only: [:index]
 
   def index
@@ -37,7 +38,8 @@ class DocumentsController < ApplicationController
   end
   def move_to_root
     @item = Item.find(params[:item_id])
-    if @item.user_id == current_user.id
+    @document = Document.find_by(item_id: @item.id)
+    if @item.user_id == current_user.id || !(@document.nil?)
       redirect_to root_path
     end
   end
