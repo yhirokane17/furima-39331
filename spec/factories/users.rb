@@ -4,8 +4,8 @@ FactoryBot.define do
     email                 {Faker::Internet.email}
     password              {'a00000'}
     password_confirmation {password}
-    last_name             {'あ'}
-    first_name            {'あ'}
+    last_name             {'あいう'}
+    first_name            {'あいう'}
     last_name_kana        {'ア'}
     first_name_kana       {'ア'}
     birthday              {'11111111'}
