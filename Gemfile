@@ -77,4 +77,4 @@ gem 'faker'
 gem 'payjp'
 gem 'rails-i18n'
 gem "aws-sdk-s3", require: false
-gem 'date', '3.3.3'
+gem 'mail','2.7.1'
